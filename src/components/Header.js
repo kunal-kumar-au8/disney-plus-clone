@@ -91,7 +91,7 @@ const Header = () => {
         </a>
       </NavMenu>
       <UserImg
-        src='https://media-exp3.licdn.com/dms/image/D5635AQEETadYBcSNbQ/profile-framedphoto-shrink_100_100/0/1623302260826?e=1624946400&v=beta&t=X8suPnm9Zh1D5hpr8_GHd1Mlg4hdeaSGEW5lxSFF_eI'
+        src='./images/avatar.png'
         alt='user'
       />
     </Nav>
