@@ -17,6 +17,7 @@ const Container = styled.main`
       right: 0;
       bottom: 0;
       z-index: -1;
+      opacity: 1;
   }
 `
 
@@ -24,7 +25,7 @@ const Container = styled.main`
 const Home = () => {
     return (
         <Container>
-            Home
+            <ImgSlider/>
         </Container>
     )
 }
