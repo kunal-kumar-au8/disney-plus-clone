@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import ImgSlider from './ImgSlider';
 import Viewers from './Viewers';
 import Movies from './Movies';
 import styled from 'styled-components';
+import db from '../firebase';
+import { useDispatch, useSelector } from "react-redux";
+import { setMovies } from '../features/movie/movieSlice';
 
 const Container = styled.main`
   min-height: calc(100vh - 70px);
@@ -26,6 +29,21 @@ const Container = styled.main`
 
 
 const Home = () => {
+    const dispatch = useDispatch();
+
+    useEffect(() =>{
+        db.collection("movies").onSnapshot((snapshot)=>{
+            console.log(snapshot)
+            let tempMovies = snapshot.docs.map((doc)=>{
+                console.log(doc.data());
+                return {id: doc.id, ...doc.data()}
+            })
+            dispatch(setMovies(tempMovies))
+            console.log(tempMovies);
+        })
+    }, [])
+
+
     return (
         <Container>
             <ImgSlider/>
